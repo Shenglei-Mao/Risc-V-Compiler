@@ -1,0 +1,40 @@
+#!/bin/bash
+# java -cp classes:lib/antlr-4.8-complete.jar Compiler $1 > $2
+
+rm -rf out
+mkdir out
+mkdir out/basic
+mkdir out/control-flow
+mkdir out/funcs
+mkdir out/checksum
+
+# @Michael: Should consistent after init, but okay if not consistent after step5
+for file in tests/checksum/*
+do
+	dest=$(echo $file | cut -d '.' -f 1)
+	dest=$(echo $dest | cut -d '/' -f 3)
+    java -cp classes:lib/antlr-4.8-complete.jar compiler.Compiler $file > out/checksum/$dest.asm
+    echo "$dest"
+done
+
+for file in tests/basic/*
+do
+	dest=$(echo $file | cut -d '.' -f 1)
+	dest=$(echo $dest | cut -d '/' -f 3)
+    java -cp classes:lib/antlr-4.8-complete.jar compiler.Compiler $file > out/basic/$dest.asm
+    echo "$dest"
+done
+for file in tests/control-flow/*
+do
+	dest=$(echo $file | cut -d '.' -f 1)
+	dest=$(echo $dest | cut -d '/' -f 3)
+    java -cp classes:lib/antlr-4.8-complete.jar compiler.Compiler $file > out/control-flow/$dest.asm
+    echo "$dest"
+done
+for file in tests/funcs/*
+do
+	dest=$(echo $file | cut -d '.' -f 1)
+	dest=$(echo $dest | cut -d '/' -f 3)
+    java -cp classes:lib/antlr-4.8-complete.jar compiler.Compiler $file > out/funcs/$dest.asm
+    echo "$dest"
+done

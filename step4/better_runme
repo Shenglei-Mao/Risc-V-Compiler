@@ -1,0 +1,12 @@
+#!/bin/bash
+# java -cp classes:lib/antlr-4.8-complete.jar Compiler $1 > $2
+
+rm -rf out
+mkdir out
+for file in tests/*
+do
+	dest=$(echo $file | cut -d '.' -f 1)
+	dest=$(echo $dest | cut -d '/' -f 2)
+    java -cp classes:lib/antlr-4.8-complete.jar compiler.Compiler $file > out/$dest.asm
+    echo "$dest"
+done

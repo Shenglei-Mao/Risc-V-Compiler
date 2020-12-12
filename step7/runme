@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "OPTION 1"
+java -cp classes:lib/antlr-4.8-complete.jar compiler.Compiler $1 > $2
+

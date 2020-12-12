@@ -1,0 +1,37 @@
+@Michael Test
+passed test:
+using 11 registers
+basic/test0
+basic/test1
+basic/test2
+basic/test3
+basic/test4
+basic/test5
+basic/test6
+
+using 10 registers
+basic/test7
+basic/test8
+basic/test10
+control-flow/test0
+control-flow/test1
+control-flow/test2
+control-flow/test3
+control-flow/test4
+control-flow/test5
+control-flow/test6
+control-flow/test7
+
+using 9 registers
+basic/test2
+
+using 8 registers
+basic/test3
+
+ad hoc code that need to fix:
+using 8 registers
+control-flow/test5 (known issue, put vs div, address vs value)
+
+failed test:
+using 10 registers
+control-flow/test8
